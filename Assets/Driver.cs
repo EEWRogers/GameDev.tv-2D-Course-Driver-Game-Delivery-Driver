@@ -24,7 +24,19 @@ public class Driver : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(0,0,turnSpeed);
-        transform.Translate(0,movementSpeed,0);
+        MovePlayer();
+
+        // transform.Rotate(0,0,turnSpeed);
+        // transform.Translate(0,movementSpeed,0);
+    }
+
+    void MovePlayer()
+    {
+        Vector2 input = moveAction.ReadValue<Vector2>();
+        float acceleration = input.y * movementSpeed;
+        float turning = -input.x * turnSpeed;
+
+        transform.Translate(0, acceleration, 0);
+        transform.Rotate(0, 0, turning);
     }
 }
