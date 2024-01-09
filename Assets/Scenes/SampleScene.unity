@@ -315,6 +315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 10
   turnSpeed: 100
+  accelerationDelay: 0.2
 --- !u!114 &2107416451
 MonoBehaviour:
   m_ObjectHideFlags: 0
