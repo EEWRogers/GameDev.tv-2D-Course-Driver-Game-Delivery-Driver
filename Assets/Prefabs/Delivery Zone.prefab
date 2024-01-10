@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5907366759629708284}
   - component: {fileID: 8589216132665571944}
   - component: {fileID: 3584909512074803662}
+  - component: {fileID: 8466468752183643562}
   m_Layer: 0
   m_Name: Delivery Zone
   m_TagString: Untagged
@@ -130,3 +131,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8466468752183643562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5639978264018625098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e919b60f05246984bbbe745372989649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  packageType: 0

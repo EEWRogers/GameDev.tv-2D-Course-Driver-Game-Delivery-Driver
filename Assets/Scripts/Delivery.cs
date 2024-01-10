@@ -14,18 +14,30 @@ public class Delivery : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        GetPackage(other);
+
+        DeliverPackage(other);
+    }
+
+    void GetPackage(Collider2D other)
+    {
         if (other.GetComponent<PackagePickup>() == null) { return; }
 
         if (currentPackage == PackageType.EMPTY)
         {
-            AddPackage(other.GetComponent<PackagePickup>().PackageType);
+            currentPackage = other.GetComponent<PackagePickup>().PackageType;
             other.GetComponent<PackagePickup>().DestroyPackage();
         }
     }
 
-    void AddPackage(PackageType packageCollected)
+    void DeliverPackage(Collider2D other)
     {
-        currentPackage = packageCollected;
-    }
+        if (other.GetComponent<DeliveryZone>() == null) { return; }
 
+        if (currentPackage == other.GetComponent<DeliveryZone>().PackageType)
+        {
+            Debug.Log("Package delivered!");
+            currentPackage = PackageType.EMPTY;
+        }
+    }
 }
