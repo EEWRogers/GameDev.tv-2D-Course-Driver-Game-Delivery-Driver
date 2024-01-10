@@ -20047,6 +20047,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (Last Hope)
       objectReference: {fileID: 0}
+    - target: {fileID: 4472583906492837501, guid: d33a5182e0317e745803eb720e9ddced, type: 3}
+      propertyPath: m_Color.b
+      value: 0.3726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 4472583906492837501, guid: d33a5182e0317e745803eb720e9ddced, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4472583906492837501, guid: d33a5182e0317e745803eb720e9ddced, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8703379
+      objectReference: {fileID: 0}
     - target: {fileID: 4618405144669690503, guid: d33a5182e0317e745803eb720e9ddced, type: 3}
       propertyPath: turnSpeed
       value: 150
