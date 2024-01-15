@@ -10,10 +10,16 @@ public class Delivery : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Color defaultColour;
 
+    Timer timer;
+    Score score;
+
     void Awake() 
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         defaultColour = spriteRenderer.color;
+
+        timer = FindObjectOfType<Timer>();
+        score = FindObjectOfType<Score>();
     }
 
     void OnEnable() 
@@ -51,7 +57,8 @@ public class Delivery : MonoBehaviour
 
             if (currentPackage == other.GetComponent<DeliveryZone>().PackageType)
             {
-                Debug.Log("Package delivered!");
+                score.IncreaseScore();
+                timer.AddTime();
                 currentPackage = PackageType.EMPTY;
             }
         }
