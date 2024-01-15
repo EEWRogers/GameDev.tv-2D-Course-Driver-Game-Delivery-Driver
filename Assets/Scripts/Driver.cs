@@ -5,8 +5,12 @@ using UnityEngine.InputSystem;
 
 public class Driver : MonoBehaviour
 {
-    [SerializeField] float movementSpeed = 0.05f;
-    [SerializeField] float turnSpeed = 0.5f;
+    [SerializeField] float movementSpeed = 15f;
+    [SerializeField] float boostedSpeed = 20f;
+    [SerializeField] float boostTime = 3f;
+    [SerializeField] float slowSpeed = 10f;
+    [SerializeField] float slowTime = 3f;
+    [SerializeField] float turnSpeed = 150f;
     [SerializeField] float accelerationDelay = 0.5f;
 
     PlayerInput playerInput;
@@ -20,14 +24,21 @@ public class Driver : MonoBehaviour
         moveAction = playerInput.actions["Move"];
     }
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         MovePlayer();
+    }
+
+    void OnTriggerEnter2D(Collider2D other) 
+    {
+        if (other.GetComponent<Boost>() == null) { return; }
+
+        StartCoroutine(BoostPlayer());
+    }
+
+    void OnCollisionEnter2D(Collision2D other) 
+    {
+        StartCoroutine(SlowPlayer());
     }
 
     void MovePlayer()
@@ -49,5 +60,27 @@ public class Driver : MonoBehaviour
         {
             transform.Rotate(0, 0, turning);
         }
+    }
+
+    IEnumerator BoostPlayer()
+    {
+        float currentSpeed = movementSpeed;
+
+        movementSpeed = boostedSpeed;
+
+        yield return new WaitForSeconds(boostTime);
+
+        movementSpeed = currentSpeed;
+    }
+
+    IEnumerator SlowPlayer()
+    {
+        float currentSpeed = movementSpeed;
+
+        movementSpeed = slowSpeed;
+
+        yield return new WaitForSeconds(slowTime);
+
+        movementSpeed = currentSpeed;
     }
 }
